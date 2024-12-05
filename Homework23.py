@@ -1,10 +1,7 @@
 class House:
-    houses_history = []  # Атрибут класса для хранения истории созданных объектов
-
+    houses_history = []  
     def __new__(cls, *args, **kwargs):
-        # Создаем новый объект
         instance = super(House, cls).__new__(cls)
-        # Добавляем название дома в историю
         cls.houses_history.append(args[0])
         return instance
 
@@ -18,7 +15,7 @@ class House:
     def __del__(self):
         print(f"{self.name} снесён, но он останется в истории")
 
-# Пример выполняемого кода
+
 h1 = House('ЖК Эльбрус', 10)
 print(House.houses_history)  # ['ЖК Эльбрус']
 
@@ -28,10 +25,10 @@ print(House.houses_history)  # ['ЖК Эльбрус', 'ЖК Акация']
 h3 = House('ЖК Матрёшки', 20)
 print(House.houses_history)  # ['ЖК Эльбрус', 'ЖК Акация', 'ЖК Матрёшки']
 
-# Удаление объектов
-del h2  # ЖК Акация снесён, но он останется в истории
-del h3  # ЖК Матрёшки снесён, но он останется в истории
+
+del h2  
+del h3  
 
 print(House.houses_history)  # ['ЖК Эльбрус']
 
-del h1  # ЖК Эльбрус снесён, но он останется в истории
+del h1  
